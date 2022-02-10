@@ -3,5 +3,5 @@
 ## Tech stack
 
 - NodeJS
-- Express
+- Express (with express async handler)
 - MogoDB + Mongoose

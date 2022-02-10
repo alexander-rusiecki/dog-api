@@ -1,24 +1,24 @@
-const getDogs = (req, res) => {
-  res.status(200).json({ message: 'Get dogs' });
-};
+const asyncHandler = require('express-async-handler');
 
-const addDog = (req, res) => {
+const getDogs = asyncHandler(async (req, res) => {
+  res.status(200).json({ message: 'Get dogs' });
+});
+
+const addDog = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400);
     throw new Error('Please add a text field');
   }
-  const body = req.body;
-  console.log(body);
-  res.status(200).json({ message: body });
-};
+  res.status(200).json({ message: 'add dog' });
+});
 
-const updateDog = (req, res) => {
+const updateDog = asyncHandler(async (req, res) => {
   res.status(200).json({ message: `Update dog with id: ${req.params.id} ` });
-};
+});
 
-const deleteDog = (req, res) => {
+const deleteDog = asyncHandler(async (req, res) => {
   res.status(200).json({ message: `Delete dog with id ${req.params.id}` });
-};
+});
 
 module.exports = {
   getDogs,
