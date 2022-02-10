@@ -7,12 +7,7 @@ const {
   deleteDog,
 } = require('../controllers/dogController');
 
-router.get('/', getDogs);
-
-router.post('/', addDog);
-
-router.put('/:id', updateDog);
-
-router.delete('/:id', deleteDog);
+router.route('/').get(getDogs).post(addDog);
+router.route('/:id').put(updateDog).delete(deleteDog);
 
 module.exports = router;
