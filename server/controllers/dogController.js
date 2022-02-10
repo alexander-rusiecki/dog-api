@@ -1,7 +1,9 @@
 const asyncHandler = require('express-async-handler');
+const Dog = require('../models/dogModel');
 
 const getDogs = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: 'Get dogs' });
+  const dogs = await Dog.find();
+  res.status(200).json(dogs);
 });
 
 const addDog = asyncHandler(async (req, res) => {
