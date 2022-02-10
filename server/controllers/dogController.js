@@ -3,7 +3,13 @@ const getDogs = (req, res) => {
 };
 
 const addDog = (req, res) => {
-  res.status(200).json({ message: 'Add dog' });
+  if (!req.body.text) {
+    res.status(400);
+    throw new Error('Please add a text field');
+  }
+  const body = req.body;
+  console.log(body);
+  res.status(200).json({ message: body });
 };
 
 const updateDog = (req, res) => {
