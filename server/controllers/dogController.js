@@ -7,19 +7,36 @@ const getDogs = asyncHandler(async (req, res) => {
 });
 
 const addDog = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
+  if (!req.body.breed) {
     res.status(400);
-    throw new Error('Please add a text field');
+    throw new Error('Please enter a dog breed');
   }
-  res.status(200).json({ message: 'add dog' });
+  const dog = await Dog.create({
+    breed: req.body.breed,
+  });
+  res.status(200).json(dog);
 });
 
 const updateDog = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: `Update dog with id: ${req.params.id} ` });
+  const dog = await Dog.findById(req.params.id);
+  if (!dog) {
+    res.status(400);
+    throw new Error('Dog not found');
+  }
+  const updatedDog = await Dog.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
+  res.status(200).json(updatedDog);
 });
 
 const deleteDog = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: `Delete dog with id ${req.params.id}` });
+  const dog = await Dog.findById(req.params.id);
+  if (!dog) {
+    res.status(400);
+    throw new Error('Dog not found');
+  }
+  await dog.remove();
+  res.status(200).json({ id: req.params.id });
 });
 
 module.exports = {
