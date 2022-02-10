@@ -1,4 +1,4 @@
-# Simple NodeJS REST api
+# Simple NodeJS REST api with CRUD functionality
 
 ## Tech stack
 

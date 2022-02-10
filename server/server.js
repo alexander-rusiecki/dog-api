@@ -3,6 +3,8 @@ const dotenv = require('dotenv').config();
 const port = process.env.PORT || 5000;
 const app = express();
 
+app.use('/api/dogs', require('./routes/dogRoutes'));
+
 app.listen(port, () =>
   console.log(`server running on port: ${process.env.PORT}`)
 );
