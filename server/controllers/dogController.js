@@ -11,8 +11,18 @@ const addDog = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error('Please enter a dog breed');
   }
+  if (!req.body.countryOfOrigin) {
+    res.status(400);
+    throw new Error('please enter country of origin');
+  }
+  if (!req.body.imgageUrl) {
+    res.status(400);
+    throw new Error('please enter an image url');
+  }
   const dog = await Dog.create({
     breed: req.body.breed,
+    countryOfOrigin: req.body.countryOfOrigin,
+    imgageUrl: req.body.imgageUrl,
   });
   res.status(200).json(dog);
 });

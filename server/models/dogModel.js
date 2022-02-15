@@ -6,6 +6,14 @@ const dogSchema = mongoose.Schema(
       type: String,
       required: [true, 'please enter breed'],
     },
+    countryOfOrigin: {
+      type: String,
+      required: [true, 'please enter country of origin'],
+    },
+    imgageUrl: {
+      type: String,
+      required: [true, 'please enter an image url'],
+    },
   },
   {
     timestamps: true,
