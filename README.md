@@ -6,9 +6,11 @@
 - Express (with express async handler)
 - MogoDB + Mongoose
 
-Run 'npm install' to install dependencies
-Add MongoDB cluster
-Add .env file containing: NODE_ENV, PORT, MONGO_URI,
+## Setup
+
+- Run 'npm install' to install dependencies
+- Add MongoDB cluster + collection
+- Add .env file containing: NODE_ENV, PORT, MONGO_URI,
 
 ### For HTTP requests: run 'npm run server'
 
@@ -17,7 +19,7 @@ Add .env file containing: NODE_ENV, PORT, MONGO_URI,
 - PUT: http://localhost:4000/api/dogs/:id + body
 - DELETE: http://localhost:4000/api/dogs/:id
 
-#### Dog model:
+### Dog model:
 
 - breed
 - countryOfOrigin
