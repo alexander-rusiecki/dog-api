@@ -12,3 +12,9 @@
 - POST: http://localhost:4000/api/dogs/ + body
 - PUT: http://localhost:4000/api/dogs/:id + body
 - DELETE: http://localhost:4000/api/dogs/:id
+
+#### Dog model:
+
+- breed
+- countryOfOrigin
+- imageUrl
