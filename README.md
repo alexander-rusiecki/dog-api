@@ -1,4 +1,4 @@
-# Simple NodeJS REST api with CRUD functionality
+# Simple NodeJS REST api with CRUD functionality, useful for testing front-end applications
 
 ## Tech stack
 
